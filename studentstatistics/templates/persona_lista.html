@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Personas <a href="nueva_persona" class="btn btn-success">+ Agregar persona</a> {% endblock %}
+{% block content %}
+
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+      Estadisticas
+    </div>
+    <ul class="list-group list-group-flush">
+        {% for k, v in estadisticas.items %}
+        <li class="list-group-item">
+            {{ k }}: {{ v }}
+        </li>
+        {%endfor%}
+    </ul>
+  </div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        {% for c in personas.columns %}
+        <th>{{c}}</th>
+        {%endfor%}
+    </tr>
+    </thead>
+    <tbody>
+    {% for p in personas.iloc %}
+    <tr>
+        {% for c in p %}
+        <th>{{c}}</th>
+        {%endfor%}
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

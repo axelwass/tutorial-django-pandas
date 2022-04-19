@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+{% block title %}Nueva persona{% endblock %}
+
+{% block content %}
+
+<form method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <button type="submit" class="btn btn-success">
+        Agregar
+    </button>
+</form>
+{% endblock %}
